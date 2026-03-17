@@ -12,7 +12,6 @@ A full-stack web application for booking DJ studio sessions, with user authentic
 | Backend | Express.js (TypeScript), Node.js |
 | Database | MySQL via Prisma ORM |
 | Auth | JWT, Google OAuth (`@react-oauth/google`) |
-| Email | Nodemailer (SMTP) |
 | Process Manager | PM2 (`ecosystem.config.cjs`) |
 
 ---
