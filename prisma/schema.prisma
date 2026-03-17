@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  name          String
+  email         String    @unique
+  password_hash String
+  role          Role      @default(CUSTOMER)
+  created_at    DateTime  @default(now())
+  is_banned     Boolean   @default(false)
+  bookings      Booking[]
+}
+
+model DateBlock {
+  id         Int      @id @default(autoincrement())
+  date       DateTime @unique
+  reason     String?
+  created_at DateTime @default(now())
+}
+
+model Booking {
+  id          Int      @id @default(autoincrement())
+  user_id     Int
+  start_time  DateTime
+  end_time    DateTime
+  duration    Int
+  total_price Float
+  status      Status   @default(PENDING)
+  user        User     @relation(fields: [user_id], references: [id])
+  payment     Payment?
+
+  @@index([user_id], map: "Booking_user_id_fkey")
+}
+
+model Payment {
+  id             Int           @id @default(autoincrement())
+  booking_id     Int           @unique
+  amount         Float
+  payment_status PaymentStatus @default(PENDING)
+  transaction_id String?
+  created_at     DateTime      @default(now())
+  payment_method PaymentMethod @default(TNG)
+  receipt_url    String?
+  booking        Booking       @relation(fields: [booking_id], references: [id])
+}
+
+enum Role {
+  ADMIN
+  CUSTOMER
+}
+
+enum Status {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+enum PaymentMethod {
+  TNG
+  BANK_TRANSFER
+}
