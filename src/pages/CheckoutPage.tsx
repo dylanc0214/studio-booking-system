@@ -238,7 +238,7 @@ export default function CheckoutPage() {
                     {copiedField === 'tng' ? <Check size={18} className="text-green-500" /> : <Copy size={18} />}
                   </button>
                 </div>
-                <p className="text-center text-xs mt-2 text-slate-500 font-medium">(Aiman)</p>
+                <p className="text-center text-xs mt-2 text-slate-500 font-medium">(Dylan Chow)</p>
               </div>
             ) : (
               <div className="text-sm text-slate-600">
