@@ -80,7 +80,7 @@ export default function CheckoutPage() {
       // 3. Redirect to WhatsApp
       const bookingId = checkoutData.booking.id;
       const message = `Hi Underrated! I just paid RM${(price * duration).toFixed(2)} for a ${duration}-hour session on ${format(date, 'MMM d, yyyy')} at ${timeSlot}. Booking ID: #${bookingId}`;
-      const waUrl = `https://wa.me/60129119936?text=${encodeURIComponent(message)}`;
+      const waUrl = `https://wa.me/60123456789?text=${encodeURIComponent(message)}`;
 
       window.location.href = waUrl;
 
@@ -229,7 +229,7 @@ export default function CheckoutPage() {
                   </div>
                 </div>
                 <div className="flex items-center justify-center gap-2 mt-1 bg-white p-3 rounded-xl border border-slate-100">
-                  <span className="font-bold text-slate-900 text-lg tracking-wide">012-9119936</span>
+                  <span className="font-bold text-slate-900 text-lg tracking-wide">012-3456789</span>
                   <button
                     onClick={() => handleCopy('0129119936', 'tng')}
                     className="p-1.5 hover:bg-slate-100 rounded-md transition-colors text-slate-500 hover:text-indigo-600"
@@ -242,13 +242,13 @@ export default function CheckoutPage() {
               </div>
             ) : (
               <div className="text-sm text-slate-600">
-                Please transfer RM{(price * duration).toFixed(2)} to <strong className="text-slate-900">CIMB Bank</strong>:
+                Please transfer RM{(price * duration).toFixed(2)} to <strong className="text-slate-900">Maybank Bank</strong>:
                 <br />
                 <div className="flex items-center gap-2 mt-3 bg-white p-3 rounded-xl border border-slate-100">
-                  <span className="font-bold text-slate-900 text-lg tracking-wide">7004037752</span>
-                  <span className="text-slate-500 text-xs">(Aiman Naqiuddin)</span>
+                  <span className="font-bold text-slate-900 text-lg tracking-wide">88888888</span>
+                  <span className="text-slate-500 text-xs">(Dylan Chow Yu Jun)</span>
                   <button
-                    onClick={() => handleCopy('7004037752', 'bank')}
+                    onClick={() => handleCopy('88888888', 'bank')}
                     className="p-1.5 hover:bg-slate-100 rounded-md transition-colors text-slate-500 hover:text-indigo-600 ml-auto"
                     title="Copy account number"
                   >
