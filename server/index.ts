@@ -28,6 +28,19 @@ app.use('/api/admin', adminRoutes);
 // Static files for Uploads
 app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
 
+// Serve static files from the React app build directory
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Catch all handler: send back React's index.html file for any non-API routes
+app.get('*', (req, res) => {
+    // Only serve index.html for non-API routes
+    if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(__dirname, '../dist/index.html'));
+    } else {
+        res.status(404).json({ error: 'API endpoint not found' });
+    }
+});
+
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
 });
