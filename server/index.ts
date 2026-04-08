@@ -31,6 +31,11 @@ app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
 // Serve static files from the React app build directory
 app.use(express.static(path.join(__dirname, '../dist')));
 
+// Health check endpoint (must come before the catch-all)
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok' });
+});
+
 // Catch all handler: send back React's index.html file for any non-API routes
 app.get('*', (req, res) => {
     // Only serve index.html for non-API routes
@@ -39,10 +44,6 @@ app.get('*', (req, res) => {
     } else {
         res.status(404).json({ error: 'API endpoint not found' });
     }
-});
-
-app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok' });
 });
 
 app.listen(port, () => {
