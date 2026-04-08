@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import prisma from '../lib/prisma.ts';
 import { sendBookingUpdateNotification } from '../lib/email.ts'; // Placeholder if we ever want to trigger real emails later
 
