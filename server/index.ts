@@ -1,10 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import authRoutes from './routes/auth';
-import bookingRoutes from './routes/bookings';
-import adminRoutes from './routes/admin';
-import uploadRoutes from './routes/upload';
+import authRoutes from './routes/auth.ts';
+import bookingRoutes from './routes/bookings.ts';
+import adminRoutes from './routes/admin.ts';
+import uploadRoutes from './routes/upload.ts';
 import path from 'path';
 import { fileURLToPath } from 'url';
 

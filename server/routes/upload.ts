@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import multer from 'multer';
 import path from 'path';
-import { authenticate } from '../middleware/auth';
+import { authenticate } from '../middleware/auth.ts';
 import { v4 as uuidv4 } from 'uuid';
 
 const router = Router();

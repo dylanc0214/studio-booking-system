@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import prisma from '../lib/prisma';
-import { AuthRequest } from '../middleware/auth';
+import prisma from '../lib/prisma.ts';
+import { AuthRequest } from '../middleware/auth.ts';
 import { startOfDay, endOfDay, addHours, isWithinInterval } from 'date-fns';
-import { sendAdminNotification } from '../lib/email';
+import { sendAdminNotification } from '../lib/email.ts';
 
 const HOURLY_RATE = 50; // $50 per hour
 

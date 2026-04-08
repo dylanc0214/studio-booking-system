@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import prisma from '../lib/prisma';
-import { sendBookingUpdateNotification } from '../lib/email'; // Placeholder if we ever want to trigger real emails later
+import prisma from '../lib/prisma.ts';
+import { sendBookingUpdateNotification } from '../lib/email.ts'; // Placeholder if we ever want to trigger real emails later
 
 export const getPendingBookings = async (req: Request, res: Response) => {
     try {

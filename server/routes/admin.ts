@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { getPendingBookings, updateBookingStatus, getDashboardStats, getUsers, toggleUserBan, getUpcomingBookings, updateBookingTime, getHolidays, addHoliday, deleteHoliday } from '../controllers/adminController';
-import { authenticate } from '../middleware/auth';
-import { requireAdmin } from '../middleware/admin';
+import { getPendingBookings, updateBookingStatus, getDashboardStats, getUsers, toggleUserBan, getUpcomingBookings, updateBookingTime, getHolidays, addHoliday, deleteHoliday } from '../controllers/adminController.ts';
+import { authenticate } from '../middleware/auth.ts';
+import { requireAdmin } from '../middleware/admin.ts';
 
 const router = Router();
 
